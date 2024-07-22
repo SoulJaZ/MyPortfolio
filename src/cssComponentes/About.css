@@ -1,0 +1,114 @@
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #464242, #ffffff);
+}
+section#about {
+    position: relative;
+    background: linear-gradient(to bottom, #f0f2f5, #ffffff);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin: .5rem auto;
+    overflow: hidden;
+}
+.container-about {
+    max-height: 590px;
+    max-width: 1100px;
+    padding: 0 8rem;
+    z-index: 1;
+}
+h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.contenedor-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    z-index: 2;
+    position: relative;
+}
+
+.imagen-perfil {
+    border-radius: 50%;
+    height: 200px; 
+    width: 200px; 
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;}
+
+.imagen-perfil:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor-imagen {
+    flex: 11;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.contenedor-texto {
+    flex: 11;
+    padding: 0 1rem;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+    color: #555;
+}
+
+.contenedor-descripcion {
+    text-align: left;
+    margin-top: 1rem;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+    line-height: 1;
+    z-index: 1;
+}
+
+.contenedor-descripcion p {
+    margin-bottom: .5rem;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contenedor-imagen, .contenedor-texto {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contenedor-texto {
+        padding: .5rem;
+    }
+
+    .contenedor-descripcion {
+        text-align: left;
+        width: 100%;
+        padding: .5rem;
+        margin-top: .1rem;
+    }
+}

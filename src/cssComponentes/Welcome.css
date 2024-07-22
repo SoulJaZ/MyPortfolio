@@ -1,0 +1,21 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+.contenedor-tarjetas{
+    margin: .5rem auto;
+    max-height: 590px;
+    max-width: 1100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 2rem;
+}
+.card-img-top:hover{
+    transform: scale(1.1);
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
+}

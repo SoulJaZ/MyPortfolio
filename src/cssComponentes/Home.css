@@ -1,0 +1,17 @@
+body{
+    align-items: center;
+    justify-content: center;
+}
+.contenedor{
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.contenedor-Home{
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+    
+  }
