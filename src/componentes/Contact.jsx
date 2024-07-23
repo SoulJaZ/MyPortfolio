@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import "../cssComponentes/Contact.css";
-import { basedatos } from '../lib/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { basedatos, ref, push } from '../lib/firebase';
 
 const Contact = () => {
     const [informacionFormulario, setInformacionFormulario] = useState({
@@ -12,14 +11,20 @@ const Contact = () => {
         message: ''
     });
 
+    const [alertaVisible, setAlertaVisible] = useState(false);
+    // hook de estado en falso en la inicialización para mostrar alerta
+
     const handleChange = (e) => {
+        // manipulador de cambio en el evento de cambio en los inputs
         setInformacionFormulario({
             ...informacionFormulario,
+            // información traída para a través de los valores de los inputs
             [e.target.name]: e.target.value
         });
     };
 
     const validarFormulario = () => {
+        // validaciones del formulario
         const erroresNuevos = {};
         if (!informacionFormulario.name) erroresNuevos.name = "Nombre es requerido.";
         if (!informacionFormulario.email) {
@@ -40,9 +45,19 @@ const Contact = () => {
             return;
         }
         try {
-            await addDoc(collection(basedatos, 'contacts'), informacionFormulario);
+            console.log("Datos a enviar: ", informacionFormulario);
+            const refContactos = ref(basedatos, 'contacts');
+            // almacenar en la variable de refContactos la data de cada documento en la colección firabase
+
+            await push(refContactos, informacionFormulario);
             console.log("Formulario enviado: ", informacionFormulario);
             setInformacionFormulario({ name: "", email: "", subject: "", message: "" });
+            setAlertaVisible(true);
+            // Se cambio valor a true para el hook de la alerta
+
+            setTimeout(() => setAlertaVisible(false), 1000);
+            // Ocultar la alerta después de 5 segundos. 
+
         } catch (error) {
             console.error("Error al enviar mensaje", error);
         }
@@ -50,6 +65,11 @@ const Contact = () => {
 
     return (
         <section id="contact" className="p-5">
+            {alertaVisible && (
+                <div className='alert alert-success alert-fixed' role='alert'>
+                    ¡Correo enviado con éxito!
+                </div>
+            )}
             <h2>Contacta conmigo.</h2>
             <Container className='container-contact'>
                 <Row>
